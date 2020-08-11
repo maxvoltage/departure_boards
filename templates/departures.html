@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>{{title}}</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div class="container" style="text-transform:uppercase;"">
+        <h1>{{title}}</h1>
+        <p>{{data}}</p>
+        <table style="
+            background-color: black; 
+            color: yellow; 
+            width: 100%; 
+            border: 1px solid #ddd;
+            border-spacing: 20px 4px;
+            font-family: Arial, sans-serif;
+        ">
+            <tr>
+                <td colspan="5">{{current_time.day}}</td>
+                <td>current time</td>
+            </tr>
+            <tr>
+                <td colspan="5">{{current_time.date}}</td>
+                <td>{{current_time.hour}}</td>
+            </tr>
+            <tr style="color: lightgrey;">
+                <th>carrier</th>
+                <th>time</th>
+                <th>destination</th>
+                <th>train#</th>
+                <th>track#</th>
+                <th>status</th>
+            </tr>
+            {% for item in departures %}
+            <tr>
+                <td>MBTA</td>
+                <td>{{item.departure_time}}</td>
+                <td>{{item.destination}}</td>
+                <td>{{item.train_no}}</td>
+                <td>{{item.track_no}}</td>
+                <td>{{item.status}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>
